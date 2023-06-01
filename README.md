@@ -1,41 +1,27 @@
-# AmxModX Plugin Repo Template
+# [VipM-M] Welcome Message
 
-Template AmxModX plugin package for building on Windows.
+Модуль для Vip Modular, добавляющий привествтенные сообщения.
 
-## `.build-config`
+## Настройка
 
-Config for building script `build.bat`.
+### Параметры
 
-```ini
-; Name of output .zip file
-PACKAGE_NAME=Unnemad
+| Параметр | Обязательный? | Описание                 |
+| :------- | :------------ | :----------------------- |
+| Message  | Да            | Приветственное сообщение |
 
-; Path from project root to amxmodx folder
-PACKAGE_AMXMODX_FOLDER=amxmodx
+Параметр `Message` поддерживает следующие плейсхолдеры:
+| Название    | Описание                     |
+| :---------- | :--------------------------- |
+| `{name}`    | Заменяется на ник игрока     |
+| `{ip}`      | Заменяется на IP игрока      |
+| `{steamid}` | Заменяется на SteamID игрока |
 
-; Should add README.md file to .zip
-PACKAGE_README_USE=0
+### Пример
 
-; Should add compiled plugins (.amxx files) to .zip
-PACKAGE_COMPILED_PLUGINS_USE=1
-; Should save compiled plugins in project file after build
-PACKAGE_COMPILED_PLUGINS_SAVE=1
-
-; Should generate plugins-*.ini file and add it to .zip
-PACKAGE_PLUINGS_LIST_USE=0
-; Should postfix of plugins-*.ini file (pastes instead *)
-PACKAGE_PLUINGS_LIST_POSTFIX=unnamed
-; Should save plugins-*.ini file in project file after build
-PACKAGE_PLUINGS_LIST_SAVE=0
-
-; Should add assets to .zip file
-PACKAGE_ASSETS_USE=0
-; Path from project root to folder with assets files
-PACKAGE_ASSETS_FOLDER=assets
+```jsonc
+{
+  "Module": "WelcomeMessage",
+  "Message": "Админ {name} зашёл на сервер."
+}
 ```
-
-## Building
-
-For building you must install AmxModX compiler by [AmxxCompilerInstaller](https://github.com/ArKaNeMaN/batch-AmxxCompilerInstaller).
-
-Also, may be required download depended .inc files.
