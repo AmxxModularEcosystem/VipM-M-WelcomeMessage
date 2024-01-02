@@ -33,6 +33,10 @@ public VipM_OnInitModules() {
 }
 
 public client_putinserver(UserId) {
+    if (is_user_bot(UserId) || is_user_hltv(UserId)) {
+        return;
+    }
+
     get_user_ip(UserId, g_sUserIps[UserId], charsmax(g_sUserIps[]), true);
     get_user_authid(UserId, g_sUserSteamIds[UserId], charsmax(g_sUserSteamIds[]));
 
